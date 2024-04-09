@@ -1047,7 +1047,7 @@ class PHPExcel_Writer_Excel5_Parser
             }
 
             if ($i < ($formula_length - 1)) {
-                $this->lookAhead = $this->formula{$i+1};
+                $this->lookAhead = $this->formula[$i+1];
             }
             $token = '';
         }
@@ -1056,14 +1056,14 @@ class PHPExcel_Writer_Excel5_Parser
             $token .= $this->formula[$i];
 
             if ($i < ($formula_length - 1)) {
-                $this->lookAhead = $this->formula{$i+1};
+                $this->lookAhead = $this->formula[$i+1];
             } else {
                 $this->lookAhead = '';
             }
 
             if ($this->match($token) != '') {
                 //if ($i < strlen($this->formula) - 1) {
-                //    $this->lookAhead = $this->formula{$i+1};
+                //    $this->lookAhead = $this->formula[$i+1];
                 //}
                 $this->currentCharacter = $i + 1;
                 $this->currentToken = $token;
@@ -1071,7 +1071,7 @@ class PHPExcel_Writer_Excel5_Parser
             }
 
             if ($i < ($formula_length - 2)) {
-                $this->lookAhead = $this->formula{$i+2};
+                $this->lookAhead = $this->formula[$i+2];
             } else { // if we run out of characters lookAhead becomes empty
                 $this->lookAhead = '';
             }
